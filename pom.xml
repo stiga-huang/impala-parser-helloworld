@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>impala-parser-helloworld</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.impala</groupId>
+            <artifactId>impala-parser</artifactId>
+            <version>4.2.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.czt.dev</groupId>
+            <artifactId>java-cup</artifactId>
+            <version>0.11-a-czt02-cdh</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.16.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-standalone-metastore</artifactId>
+            <version>3.1.3000.7.2.16.0-164</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>impala.parser.local.repo</id>
+            <url>file:///home/quanlong/workspace/impala-parser-helloworld/local-repo/</url>
+            <name>Impala Parser Local Repository</name>
+        </repository>
+        <repository>
+            <id>cdh.rcs.releases.repo</id>
+            <url>https://repository.cloudera.com/artifactory/cdh-releases-rcs</url>
+            <name>CDH Releases Repository</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>impala.cdp.repo</id>
+            <url>https://native-toolchain.s3.amazonaws.com/build/cdp_components/31397203/maven</url>
+            <name>Impala CDP Repository</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.apache.impala.helloworld.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
